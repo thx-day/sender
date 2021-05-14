@@ -25,13 +25,14 @@
     Kakao.init('19995b06ac163fcb216606d28b1b25c9')
 
     var code = 0;
+    var name = "오리온";
 
     function sendLinkDefault() {
         Kakao.Link.sendDefault({
             objectType: 'feed',
             content: {
-            title: "선생님 감사합니다",
-            description: "선생님의 가르침과 은혜를 늘 잊지 않겠습니다.",
+            title: name + "선생님 감사합니다",
+            description: `선생님을 위해서 카카오톡 테마를 만들어 보았습니다.\n선생님의 가르침과 은혜를 늘 잊지 않겠습니다.`,
             imageUrl:'https://t3.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/2pEM/image/A7Z7mzTn_UW2F5sHs3AG58SWBGg.png',
             link: {
                 mobileWebUrl: "https://thx-day.github.io/teacher/?code=" + code,
@@ -46,12 +47,27 @@
                 webUrl: "https://thx-day.github.io/teacher/?code=" + code,
                 }
             }
+            {
+                title: '다운로드 방법 (안드로이드)',
+                link: {
+                mobileWebUrl: "https://m.blog.naver.com/pnina0930/221820837459",
+                webUrl: "https://m.blog.naver.com/pnina0930/221820837459",
+                }
+            }
+            {
+                title: '다운로드 방법 (IOS)',
+                link: {
+                mobileWebUrl: "https://popcorn384.tistory.com/4012",
+                webUrl: "https://popcorn384.tistory.com/4012",
+                }
+            }
             ],
         })
     }
 
     function selectbox(e){
         code = e.value;
+        name = e.options[e.selectedIndex].text;
     }
 
 </script>
