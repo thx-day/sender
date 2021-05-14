@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>카톡 공유</title>
+<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+    <input type="button" onClick="sendLinkDefault();" value="Send"/>
+    
+    <select name="teacher" onchange="selectbox(this)"> 
+        <option value="0">오리온</option>
+        <option value="1">김수연</option>
+        <option value="2">최영란</option>
+        <option value="3">박은빈</option>
+        <option value="4">김지수</option>
+        <option value="5">유현숙</option>
+        <option value="6">양승재</option>
+        <option value="7">양선희</option>
+        <option value="8">조미영</option>
+        <option value="9">고지영</option>
+        <option value="10">이한</option>
+        <option value="11">김명옥</option>
+    </select>
+<script>
+    Kakao.init('19995b06ac163fcb216606d28b1b25c9')
+
+    var code = 0;
+
+    function sendLinkDefault() {
+        Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+            title: "선생님 감사합니다",
+            description: "선생님의 가르침과 은혜를 늘 잊지 않겠습니다.",
+            imageUrl:'https://t3.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/2pEM/image/A7Z7mzTn_UW2F5sHs3AG58SWBGg.png',
+            link: {
+                mobileWebUrl: "https://thx-day.github.io/teacher/?code=" + code,
+                webUrl: "https://thx-day.github.io/teacher/?code=" + code,
+            },
+            },
+            buttons: [
+            {
+                title: '다운로드',
+                link: {
+                mobileWebUrl: "https://thx-day.github.io/teacher/?code=" + code,
+                webUrl: "https://thx-day.github.io/teacher/?code=" + code,
+                }
+            }
+            ],
+        })
+    }
+
+    function selectbox(e){
+        code = e.value;
+    }
+
+</script>
+   
+</body>
+</html>
